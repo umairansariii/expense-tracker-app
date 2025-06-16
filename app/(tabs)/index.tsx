@@ -6,37 +6,43 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import Table from '@/components/ui/Table';
+import { createColumnHelper } from '@tanstack/react-table';
+
+type Transaction = {
+  date: string;
+  particular: string;
+  debit: number;
+  credit: number;
+  balance: number;
+};
+
+const columnHelper = createColumnHelper<Transaction>();
 
 export default function HomeScreen() {
-  const headers = [
-    {
-      title: 'Date',
-      key: 'date',
+  const columns = [
+    columnHelper.accessor('date', {
+      header: 'Date',
       size: 100,
-    },
-    {
-      title: 'Particular',
-      key: 'particular',
+    }),
+    columnHelper.accessor('particular', {
+      header: 'Particular',
       size: 200,
-    },
-    {
-      title: 'Debit',
-      key: 'debit',
+    }),
+    columnHelper.accessor('debit', {
+      header: 'Debit',
       size: 100,
-    },
-    {
-      title: 'Credit',
-      key: 'credit',
+    }),
+    columnHelper.accessor('credit', {
+      header: 'Credit',
       size: 100,
-    },
-    {
-      title: 'Balance',
-      key: 'balance',
+    }),
+    columnHelper.accessor('balance', {
+      header: 'Balance',
       size: 100,
-    },
+    }),
   ];
 
-  const data = [
+  const data: Transaction[] = [
     {
       date: '2023-10-01',
       particular: 'Opening Balance',
@@ -206,7 +212,7 @@ export default function HomeScreen() {
           <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
         </ThemedText>
-        <Table headers={headers} data={data} />
+        <Table columns={columns} data={data} />
       </ThemedView>
     </ParallaxScrollView>
   );

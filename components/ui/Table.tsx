@@ -1,44 +1,66 @@
+import {
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from '@tanstack/react-table';
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
-type HeaderProps = {
-  title: string;
-  key: string;
-  size?: number;
-};
-
 type TableProps = {
-  headers: HeaderProps[];
+  columns: any[];
   data: any[];
 };
 
-const Table = ({ headers, data }: TableProps) => {
+const Table = ({ columns, data }: TableProps) => {
+  const table = useReactTable({
+    data,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+  });
+
   return (
     <View style={[styles.container]}>
       <ScrollView horizontal>
         <View style={styles.table}>
           {/* Headers */}
-          <View style={styles.tableHeader}>
-            {headers.map((header) => (
-              <View
-                key={header.key}
-                style={[styles.tableCell, { width: header.size || 100 }]}
-              >
-                <Text>{header.title}</Text>
-              </View>
-            ))}
-          </View>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <View style={styles.tableHeader} key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
+                <View
+                  key={header.id}
+                  style={[styles.tableCell, { width: header.getSize() }]}
+                >
+                  <Text>
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </Text>
+                </View>
+              ))}
+            </View>
+          ))}
           {/* Body */}
           <View style={styles.tableBody}>
             <ScrollView style={{ height: '100%' }}>
-              {data.map((row, index) => (
-                <View key={index} style={[styles.tableRow]}>
-                  {headers.map((header) => (
+              {table.getRowModel().rows.map((row) => (
+                <View key={row.id} style={styles.tableRow}>
+                  {row.getVisibleCells().map((cell) => (
                     <View
-                      key={header.key}
-                      style={[styles.tableCell, { width: header.size || 100 }]}
+                      key={cell.id}
+                      style={[
+                        styles.tableCell,
+                        { width: cell.column.getSize() },
+                      ]}
                     >
-                      <Text>{row[header.key]}</Text>
+                      <Text>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </Text>
                     </View>
                   ))}
                 </View>
