@@ -25,6 +25,7 @@ const MAPPING = {
   'line.horizontal.3.decrease.circle': 'filter-list',
   'arrow.left.to.line': 'arrow-back',
   'arrow.right.to.line': 'arrow-forward',
+  'arrow.up.right': 'arrow-outward',
   'eye.slash': 'visibility-off',
   eye: 'visibility',
   xmark: 'close',
