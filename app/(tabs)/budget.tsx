@@ -1,10 +1,10 @@
 import { ThemedView } from '@/components/ThemedView';
 import { StyleSheet, Text } from 'react-native';
 
-export default function HomeScreen() {
+export default function BudgetScreen() {
   return (
     <ThemedView style={StyleSheet.absoluteFillObject} name="surface">
-      <Text>Home Screen</Text>
+      <Text>Budget Screen</Text>
     </ThemedView>
   );
 }
