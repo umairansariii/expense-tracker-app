@@ -3,7 +3,7 @@ import { StyleSheet, Text } from 'react-native';
 
 export default function SettingScreen() {
   return (
-    <ThemedView style={StyleSheet.absoluteFillObject} name="surface">
+    <ThemedView style={StyleSheet.absoluteFillObject} colorRole="surface">
       <Text>Setting Screen</Text>
     </ThemedView>
   );
