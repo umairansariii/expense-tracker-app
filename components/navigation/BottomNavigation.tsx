@@ -23,7 +23,7 @@ export const BottomNavigation = () => {
         }),
         tabBarButton: HapticTab,
         tabBarActiveTintColor: Colors[colorScheme].primary,
-        tabBarInactiveTintColor: Colors[colorScheme].outline,
+        tabBarInactiveTintColor: Colors[colorScheme].onSurface,
         tabBarLabelStyle: {
           ...styles.tabBarLabel,
         },
@@ -44,14 +44,14 @@ export const BottomNavigation = () => {
                       console.log('Action button clicked!');
                     }}
                     style={{
-                      backgroundColor: Colors[colorScheme].primaryContainer,
+                      backgroundColor: Colors[colorScheme].primary,
                       ...styles.actionButton,
                     }}
                   >
                     <Icon
                       name={tab.iconName}
                       size={tab.iconSize}
-                      color={Colors[colorScheme].onPrimaryContainer}
+                      color={Colors[colorScheme].onPrimary}
                     />
                   </HapticTab>
                 ),
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     top: -32,
     left: '50%',
     transform: 'translate(-50%)',
-    borderRadius: 40,
+    borderRadius: '50%',
     shadowColor: '#000000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
