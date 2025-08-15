@@ -5,8 +5,8 @@ import { TransactionTile } from './TransactionTile';
 export const TransactionFeed = () => {
   return (
     <View style={styles.container}>
-      {TRANSACTION_DATA.map((data) => (
-        <TransactionTile data={data} />
+      {TRANSACTION_DATA.map((data, index) => (
+        <TransactionTile data={data} key={index} />
       ))}
     </View>
   );
