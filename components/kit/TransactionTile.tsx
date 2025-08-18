@@ -4,6 +4,7 @@ import { currency } from '@/utils/CurrencyUtils';
 import { formatDate } from '@/utils/DateUtils';
 import { StyleSheet, Text, View } from 'react-native';
 import { ThemedText } from '../ThemedText';
+import { ThemedView } from '../ThemedView';
 import { IconSymbol } from '../ui/IconSymbol';
 
 type Transaction = {
@@ -23,16 +24,14 @@ export const TransactionTile = ({ data }: TransactionTileProps) => {
   const colorScheme = useColorScheme() ?? 'light';
   const isDebit = data.type === 'Debit';
   const textColor = {
-    color: isDebit
-      ? Colors[colorScheme].primaryFixedDim
-      : Colors[colorScheme].tertiaryFixedDim,
+    color: isDebit ? Colors[colorScheme].success : Colors[colorScheme].error,
   };
   const iconRotate = {
     transform: isDebit ? 'rotate(180deg)' : 'rotate(0deg)',
   };
 
   return (
-    <View style={styles.container}>
+    <ThemedView style={styles.container} colorRole="surfaceContainer">
       <View style={styles.detailsGroup}>
         <View style={styles.iconBox}>
           <IconSymbol
@@ -60,7 +59,7 @@ export const TransactionTile = ({ data }: TransactionTileProps) => {
           {data.category}
         </ThemedText>
       </View>
-    </View>
+    </ThemedView>
   );
 };
 
@@ -70,7 +69,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 10,
+    padding: 12,
+    paddingLeft: 4,
+    borderRadius: 12,
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
   },
   detailsGroup: {
     flex: 1,
