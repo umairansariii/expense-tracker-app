@@ -27,11 +27,15 @@ export const Colors = {
     outlineVariant: '#C4C8BA',
     shadow: '#000000',
 
-    surfaceTint: '#48672F',
     error: '#BA1A1A',
     onError: '#FFFFFF',
     errorContainer: '#FFDAD6',
     onErrorContainer: '#93000A',
+
+    success: '#4D8400',
+    onSuccess: '#FFFFFF',
+
+    surfaceTint: '#48672F',
     surfaceVariant: '#E0E4D6',
     onSurfaceVariant: '#44483E',
     scrim: '#000000',
@@ -75,6 +79,8 @@ export const Colors = {
     onError: '#690005',
     errorContainer: '#93000A',
     onErrorContainer: '#FFDAD6',
+    success: '#3fba1a',
+    onSuccess: '#cdffc8',
     background: '#11140E',
     onBackground: '#E2E3D9',
     surface: '#11140E',
@@ -107,5 +113,6 @@ export const Colors = {
     surfaceContainer: '#1E211A',
     surfaceContainerHigh: '#282B24',
     surfaceContainerHighest: '#33362F',
+    onSurfaceContainer: '#000000',
   },
 };
