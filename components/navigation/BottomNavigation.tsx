@@ -6,6 +6,7 @@ import { Tabs } from 'expo-router';
 import React from 'react';
 import { Platform, StyleSheet } from 'react-native';
 import Icon from '../ui/Icon';
+import { AppBar } from './AppBar';
 
 export const BottomNavigation = () => {
   const colorScheme = useColorScheme() ?? 'light';
@@ -13,7 +14,9 @@ export const BottomNavigation = () => {
   return (
     <Tabs
       screenOptions={{
-        headerShown: false,
+        headerShown: true,
+        headerTransparent: true,
+        header: () => <AppBar />,
         tabBarBackground: undefined,
         tabBarStyle: Platform.select({
           default: {
