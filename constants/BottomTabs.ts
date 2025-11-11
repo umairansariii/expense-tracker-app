@@ -27,7 +27,7 @@ export const BottomTabs: BottomTabsType[] = [
     route: 'null_route',
     title: 'null_route',
     iconName: 'Plus',
-    iconSize: 32,
+    iconSize: 28,
     actionButton: true,
   },
   {

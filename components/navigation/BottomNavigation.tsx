@@ -83,27 +83,20 @@ export const BottomNavigation = () => {
 
 const styles = StyleSheet.create({
   tabBar: {
-    height: 70,
     borderTopWidth: 0,
-    paddingTop: 2,
   },
   actionButton: {
-    height: 60,
-    width: 60,
+    height: 42,
+    width: 56,
     justifyContent: 'center',
     alignItems: 'center',
-    top: -32,
     left: '50%',
-    transform: 'translate(-50%)',
-    borderRadius: '50%',
-    shadowColor: '#000000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
-    elevation: 5,
+    top: '50%',
+    transform: 'translate(-50%, -50%)',
+    borderRadius: 10,
   },
   tabBarLabel: {
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: 'bold',
   },
 });
